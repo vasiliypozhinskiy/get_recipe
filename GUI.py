@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtGui import QPixmap
 import request_to_spoonacular
 import food_api_ui
+import you_sure_ui
 import sys
 import database
 
@@ -10,6 +11,9 @@ class Application(QtWidgets.QMainWindow, food_api_ui.Ui_Food_api):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
+        self.setWindowTitle("Spoonacular api")
+        self.setFixedSize(1523, 627)
 
         recipe_list = database.local_recipes_db.get_recipe_names()
         self.local_recipes.addItems(recipe_list)
@@ -22,13 +26,10 @@ class Application(QtWidgets.QMainWindow, food_api_ui.Ui_Food_api):
         self.image = QPixmap("default_img.jpg")
         self.image_area.setPixmap(self.image)
 
+        self.are_you_sure_dialog = AreYouSure()
+
     def clear_db_button_clicked(self):
-        try:
-            database.local_recipes_db.clear_db()
-            database.recipe_instructions.clear_db()
-            self.local_recipes_update()
-        except Exception as error:
-            self.textBrowser.append(error.__class__)
+        self.are_you_sure_dialog.show()
 
     def delete_from_local_db_button_clicked(self):
         current_recipe_title = self.local_recipes.currentText()
@@ -207,6 +208,22 @@ class Application(QtWidgets.QMainWindow, food_api_ui.Ui_Food_api):
             self.textBrowser.append("API KEY not found, check you system variables")
             return False
         return True
+
+
+class AreYouSure(QtWidgets.QDialog, you_sure_ui.Ui_AreYouSure):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.setFixedSize(478, 159)
+        self.setWindowTitle("Are you sure?")
+
+        self.buttonBox.accepted.connect(self.accept_button)
+
+    def accept_button(self):
+        database.local_recipes_db.clear_db()
+        database.recipe_instructions.clear_db()
+        window.local_recipes.clear()
+        self.close()
 
 
 app = QtWidgets.QApplication(sys.argv)

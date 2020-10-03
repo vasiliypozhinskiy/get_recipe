@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1633</width>
-    <height>700</height>
+    <width>1523</width>
+    <height>627</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="get_recipe">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>100</y>
+      <x>580</x>
+      <y>80</y>
       <width>81</width>
       <height>28</height>
      </rect>
@@ -30,9 +30,9 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>60</y>
-      <width>771</width>
+      <x>10</x>
+      <y>40</y>
+      <width>941</width>
       <height>31</height>
      </rect>
     </property>
@@ -40,11 +40,16 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>40</y>
-      <width>771</width>
+      <x>10</x>
+      <y>10</y>
+      <width>941</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Input ingredients:</string>
@@ -57,9 +62,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
+      <y>120</y>
       <width>941</width>
-      <height>431</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="sizeAdjustPolicy">
@@ -69,8 +74,8 @@
    <widget class="QPushButton" name="clear_db">
     <property name="geometry">
      <rect>
-      <x>1150</x>
-      <y>0</y>
+      <x>960</x>
+      <y>80</y>
       <width>131</width>
       <height>28</height>
      </rect>
@@ -82,9 +87,9 @@
    <widget class="QComboBox" name="local_recipes">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>100</y>
-      <width>311</width>
+      <x>10</x>
+      <y>80</y>
+      <width>561</width>
       <height>31</height>
      </rect>
     </property>
@@ -101,8 +106,8 @@
    <widget class="QPushButton" name="get_random_recipe">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>100</y>
+      <x>670</x>
+      <y>80</y>
       <width>111</width>
       <height>28</height>
      </rect>
@@ -114,8 +119,8 @@
    <widget class="QPushButton" name="delete_from_db">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>100</y>
+      <x>790</x>
+      <y>80</y>
       <width>161</width>
       <height>28</height>
      </rect>
@@ -127,8 +132,8 @@
    <widget class="QLabel" name="image_area">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>140</y>
+      <x>960</x>
+      <y>120</y>
       <width>556</width>
       <height>370</height>
      </rect>
