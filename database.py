@@ -122,27 +122,6 @@ if __name__ != "__main__":
     local_recipes_db.create_table()
     recipe_instructions.create_table()
 
-if __name__ == "__main__":
-    import request_to_spoonacular
-    local_recipes_db = LocalRecipesDB("food_api.db")
-    recipe_instructions = RecipeInstructionsDB("food_api.db")
-    # local_recipes_db.clear_db()
-    # print("DB clear")
-    # local_recipes_db.create_table()
-    # print("DB created")
-    recipe_instructions.create_table()
-    # recipes = request_to_spoonacular.Get_findByIngredients("pork")
-    # for recipe in recipes:
-    #     local_recipes_db.insert_table(recipe)
-    # print("DB insert complete")
-    local_recipes_db.check_db()
-
-    for title in local_recipes_db.get_recipe_names():
-        recipe_id = local_recipes_db.get_id_by_title(title)
-        print(recipe_id)
-        instruction = request_to_spoonacular.Get_Analyzed_Recipe_Instructions(recipe_id)
-        recipe_instructions.insert_table(recipe_id, instruction)
-        print(recipe_instructions.get_instruction_by_id(recipe_id))
 
 
 

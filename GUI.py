@@ -168,7 +168,13 @@ class Application(QtWidgets.QMainWindow, food_api_ui.Ui_Food_api):
                 self.textBrowser.append(title)
                 for ingredient in recipe_ingredients:
                     name = ingredient['name']
+
                     amount = ingredient['amount']
+                    if amount.is_integer():
+                        amount = int(amount)
+                    else:
+                        amount = round(amount, 2)
+
                     unit = ingredient["unitLong"]
                     buffer_string = f"Ingredient: {name}. Amount: {amount} {unit}"
                     self.textBrowser.append(buffer_string)
@@ -178,9 +184,9 @@ class Application(QtWidgets.QMainWindow, food_api_ui.Ui_Food_api):
 
             try:
                 for step in instruction["steps"]:
-                    self.textBrowser.append(str(step["number"]))
+                    self.textBrowser.append("Step " + str(step["number"]) + ":")
                     if step["equipment"]:
-                        self.textBrowser.append(step["equipment"][0]["name"])
+                        self.textBrowser.append("With " + step["equipment"][0]["name"] + ":")
                     self.textBrowser.append(step["step"])
                 self.textBrowser.append("")
             except Exception as error:

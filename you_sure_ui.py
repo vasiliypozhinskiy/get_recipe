@@ -36,4 +36,4 @@ class Ui_AreYouSure(object):
         _translate = QtCore.QCoreApplication.translate
         AreYouSure.setWindowTitle(_translate("AreYouSure", "Dialog"))
         self.label.setText(_translate("AreYouSure", "Are you sure? \n"
-"You can\'t cancel this action late."))
+"You can\'t cancel this action later."))
